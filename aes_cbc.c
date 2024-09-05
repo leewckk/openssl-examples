@@ -88,10 +88,14 @@ int aes_decrypt(unsigned char *ciphertext, int ciphertext_len, unsigned char *ke
 }
 
 int main() {
-    // 示例密钥和 IV，16 字节 (128 位) 的 AES 密钥和初始化向量
+
+    // 此处的KEY值是芯片固定的不能改变
     unsigned char key[16] = {0x15, 0x18, 0x0F, 0x23, 0xC0, 0x51, 0xD0, 0x19, 0x10, 0x82, 0x81, 0x81, 0x0F, 0x24, 0x50, 0x50};
+
+    // iv 对应的是key-password/mac-password的值
     unsigned char iv[16];
 
+    // 测试代码将password设置为全1
     memset(iv, 0x11, sizeof(iv));
 
     // 明文
